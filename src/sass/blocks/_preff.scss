@@ -1,0 +1,64 @@
+.pref {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% auto;
+    gap: 0.5em;
+    &_item {
+        margin-bottom: 0.3em;
+        display: flex;
+        align-items: center;
+        input[type="text"] {
+            box-sizing: border-box;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        input {
+            height: 100%;
+            font-size: x-large;
+            border: none;
+        }
+
+        &:first-child {
+            grid-column: span 2;
+        }
+        &:last-child {
+            grid-column: 2;
+        }
+        .form_radio_group {
+            display: inline-block;
+            overflow: hidden;
+            &-item {
+                display: inline-block;
+                &:first-child label {
+                    border-radius: 6px 0 0 6px;
+                }
+                &:last-child label {
+                    border-radius: 0 6px 6px 0;
+                    border-right: 1px solid #999;
+                }
+            }
+            & input[type="radio"] {
+                display: none;
+            }
+            & label {
+                display: inline-block;
+                cursor: pointer;
+                padding: 0px 15px;
+                line-height: 34px;
+                border: 1px solid #999;
+                border-right: none;
+                user-select: none;
+            }
+
+            /* Checked */
+            & input[type="radio"]:checked + label {
+                background: #ffe0a6;
+            }
+            /* Hover */
+            & label:hover {
+                color: #666;
+            }
+        }
+    }
+}

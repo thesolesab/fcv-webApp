@@ -1,0 +1,10 @@
+button {
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+    padding: 0 1rem;
+    color: $button_color;
+    &:hover {
+        color: $text_color;
+    }
+}

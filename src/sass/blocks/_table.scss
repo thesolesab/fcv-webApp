@@ -1,0 +1,27 @@
+table {
+    border: 1px solid lightgray;
+    margin-top: 1em;
+    color: $text_color;
+    background-color: $secondary_bg_color;
+}
+
+tbody {
+    // border-bottom: 1px solid lightgray;
+    td {
+        text-align: center;
+    }
+}
+
+th {
+    // border-bottom: 1px solid lightgray;
+    // border-right: 1px solid lightgray;
+    padding: 2px 4px;
+}
+
+tfoot {
+    border-top: 1px solid lightgray;
+    color: gray;
+    th {
+        font-weight: normal;
+    }
+}

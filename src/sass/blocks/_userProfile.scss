@@ -1,0 +1,18 @@
+.userName {
+    display: flex;
+    align-items: center;
+    input {
+        padding: 1rem 0;
+        text-align: center;
+        border-color: $button_color;
+        border-radius: 1em;
+        margin-right: 1em;
+        background-color: $section_bg_color;
+        color: $text_color;
+        font-size: 20px;
+    }
+    img {
+        border-radius: 50%;
+        height: 4em;
+    }
+}

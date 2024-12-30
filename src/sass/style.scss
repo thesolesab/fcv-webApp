@@ -1,0 +1,18 @@
+@import "base/variables";
+@import "base/restore";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-color: $section_bg_color;
+    padding: 2em;
+}
+
+@import "./blocks/header";
+@import "./blocks/button";
+@import "./blocks/userProfile";
+@import "./blocks/table";
+@import "./blocks/gameDay";
+@import "./blocks/preff";

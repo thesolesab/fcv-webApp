@@ -1,0 +1,44 @@
+header {
+    padding: 0 0.5em;
+    display: flex;
+    height: 3em;
+    justify-content: space-between;
+    background-color: $header_bg_color;
+    // position: fixed;
+    // top: 0;
+    width: 100%;
+    .content {
+        width: 100%;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        li {
+            display: block;
+            border-left: 3px solid $section_separator_color;
+            margin: 0 4px;
+            a {
+                color: $text_color;
+            }
+            a.active {
+                color: $accent_text_color;
+            }
+            &:first-child {
+                border-left: none;
+            }
+        }
+    }
+    .userSection {
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            img {
+                border-radius: 50%;
+                height: 80%;
+            }
+        }
+    }
+}
