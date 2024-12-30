@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useMainService from '../../services/MainService'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import Spinner from '../Spinner/Spinner'
-import dayz from '../../services/dayz'
+import dayz from '../../helpers/dayz'
 import { useShowPopup } from '@vkruglikov/react-telegram-web-app'
 
 const Preferences = ({ chatId }) => {

@@ -3,17 +3,18 @@ import useMainService from "../../services/MainService"
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
 import Spinner from "../Spinner/Spinner"
 import { NavLink } from "react-router"
+import dictionary from "../../helpers/dictionary"
 
 function GameArchive({ chatId }) {
     const [gameList, setGameList] = useState([])
 
-    const { getAllGames, loading, error } = useMainService()
+    const { getChatById, loading, error } = useMainService()
 
     useEffect(
         () => {
-            getAllGames(chatId)
-                .then(games => {
-                    setGameList(games)
+            getChatById(chatId)
+                .then(data => {
+                    setGameList(data.gameDays)
                 })
         },
         []
@@ -23,16 +24,30 @@ function GameArchive({ chatId }) {
         const items = arr.reverse().map(
             g => {
                 const { date, _id } = g
-
-                return (
-                    <li className="GameDaysItem" key={_id}>
-                        <NavLink
-                            to={`/gameDay/${_id}`}
-                        >
-                            {date}
-                        </NavLink>
-                    </li>
+                const now = Date.now()
+                const gameDay = date.split(' ')
+                gameDay.shift()
+                gameDay.pop()
+                const gameDayDate = new Date(gameDay.map(
+                    el => {
+                        if (dictionary.indexOf(el) >= 0) {
+                            return dictionary.indexOf(el) + 1
+                        }
+                        return el
+                    }
+                ).reverse().join()
                 )
+                if (now > gameDayDate) {
+                    return (
+                        <li className="GameDaysItem" key={_id}>
+                            <NavLink
+                                to={`/gameDay/${_id}`}
+                            >
+                                {date}
+                            </NavLink>
+                        </li>
+                    )
+                }
             }
         )
         return (
@@ -48,9 +63,7 @@ function GameArchive({ chatId }) {
 
     return (
         <div className='container'>
-            {spinner}
-            {errorMessage}
-            {games}
+            {spinner || errorMessage || games}
         </div>
     )
 }

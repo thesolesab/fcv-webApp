@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router'
-import headerMenu from '../../services/pathMenu.js'
+import headerMenu from '../../helpers/pathMenu'
 const USER_DATA_JSON = { "id": 258454798, "first_name": "R&L", "last_name": "", "username": "R_and_L", "language_code": "ru", "is_premium": true, "allows_write_to_pm": true, "photo_url": "https://t.me/i/userpic/320/e1p_384j0Ahn2zGDxXqVB0I2YNt-uSdviJwvV_8oT4I.svg" }
 
 function Header({ user }) {

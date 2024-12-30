@@ -1,11 +1,11 @@
+import { _apiBase } from "../constants/constants";
 import useHttp from "../hooks/useHttp";
 
 
 const useMainService = () => {
     const { loading, request, error, clearError, process, setProcess } = useHttp();
 
-    const _apiBase = `http://localhost:5000`
-
+    // User Service
     const getUserById = async (id) => {
         const res = await request(`${_apiBase}/user/${id}`);
         return res
@@ -16,28 +16,30 @@ const useMainService = () => {
         return res
     }
 
-    const getAllGames = async (chatId) => {
-        const res = await request(`${_apiBase}/game/all/${chatId}`)
+    const updateMany = async (data) => {
+        const res = await request(`${_apiBase}/user/updateMany`, "PUT", data)
         return res
     }
 
+    // Game Service
     const getGameById = async (id) => {
         const res = await request(`${_apiBase}/game/${id}`)
         return res
     }
 
-    const updateGameDay = async (id, data) => {
-        const res = await request(`${_apiBase}/game/${id}`, "PUT", data)
+    const updateGameDay = async (data) => {
+        const res = await request(`${_apiBase}/game/update`, "PUT", data)
         return res
     }
 
-    const getSettings = async (id) => {
-        const res = await request(`${_apiBase}/pref/${id}`)
+    // Settings Service
+    const getChatById = async (id) => {
+        const res = await request(`${_apiBase}/chat/${id}`)
         return res
     }
 
-    const updatedSettings = async (id, data) => {
-        const res = await request(`${_apiBase}/pref/${id}`, "PUT", data)
+    const updateChat = async (id, data) => {
+        const res = await request(`${_apiBase}/chat/${id}`, "PUT", data)
         return res
     }
 
@@ -49,11 +51,11 @@ const useMainService = () => {
         clearError,
         getUserById,
         changeUser,
-        getAllGames,
+        updateMany,
         getGameById,
         updateGameDay,
-        getSettings,
-        updatedSettings
+        getChatById,
+        updateChat
     }
 }
 

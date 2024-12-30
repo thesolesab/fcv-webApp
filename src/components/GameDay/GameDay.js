@@ -48,7 +48,7 @@ function GameDay({ data }) {
     };
 
     const handleBlur = async () => {
-        updateGameDay(gameDay.id, JSON.stringify(gameDay))
+        updateGameDay(JSON.stringify(gameDay))
             .then(
                 () => {
                     showPopup({ message: 'Имя успешно сохранено' }).then(buttonId => console.log(buttonId));
@@ -115,7 +115,6 @@ function GameDay({ data }) {
         hour: 'numeric',
         minute: 'numeric'
     };
-    console.log(gameDay);
 
     return (
         <div className="gameDay">
