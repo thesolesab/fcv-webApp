@@ -22,7 +22,7 @@ const Preferences = ({ chatId }) => {
           }
         )
     },
-    [chatId]
+    [chatId, getSettings]
   )
 
   const handleChange = (e) => {

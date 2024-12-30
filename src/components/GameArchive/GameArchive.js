@@ -17,12 +17,12 @@ function GameArchive({ chatId }) {
                     setGameList(data.gameDays)
                 })
         },
-        []
+        [chatId, getChatById]
     )
 
     function renderGameList(arr) {
         const items = arr.reverse().map(
-            g => {
+            (g) => {
                 const { date, _id } = g
                 const now = Date.now()
                 const gameDay = date.split(' ')
@@ -37,6 +37,7 @@ function GameArchive({ chatId }) {
                     }
                 ).reverse().join()
                 )
+
                 if (now > gameDayDate) {
                     return (
                         <li className="GameDaysItem" key={_id}>
@@ -48,6 +49,7 @@ function GameArchive({ chatId }) {
                         </li>
                     )
                 }
+                return null
             }
         )
         return (

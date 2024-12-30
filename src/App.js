@@ -1,4 +1,4 @@
-import { BackButton } from "@vkruglikov/react-telegram-web-app";
+// import { BackButton } from "@vkruglikov/react-telegram-web-app";
 import Header from "./components/Header/Header";
 import UserProfile from "./components/UserProfile/UserProfile";
 import { useTelegram } from "./hooks/useTelegram";

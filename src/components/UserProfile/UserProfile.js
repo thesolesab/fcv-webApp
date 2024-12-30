@@ -11,14 +11,14 @@ function UserProfile({ user }) {
     const showPopup = useShowPopup();
     const [userData, setUserData] = useState(null);
 
-    const { getUserById, changeUser, loading, error, process } = useMainService()
+    const { getUserById, changeUser, loading, error, } = useMainService()
 
     useEffect(() => {
         getUserById(user.id)
             .then(user => {
                 setUserData(user)
             })
-    }, []);
+    }, [getUserById, user.id]);
 
     const handleChangeName = (e) => {
         setUserData(prevData => ({

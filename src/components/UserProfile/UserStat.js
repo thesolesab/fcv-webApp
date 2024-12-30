@@ -47,7 +47,8 @@ function UserStat({ stat }) {
     stat.all = Number(w + d + l)
     stat.percent = stat.all > 0 ? Math.round((w / stat.all) * 100) : 0
 
-    const [data, _setData] = React.useState(() => [stat])
+    // eslint-disable-next-line
+    const [data, setData] = React.useState(() => [stat])
 
     const table = useReactTable({
         data,
