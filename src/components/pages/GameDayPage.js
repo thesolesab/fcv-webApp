@@ -21,7 +21,7 @@ const GameDayPage = () => {
                     }
                 )
         },
-        [GameId, getGameById]
+        [GameId]
     )
 
     const errorMessage = error ? <ErrorMessage /> : null;

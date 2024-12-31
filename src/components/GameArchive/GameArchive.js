@@ -17,7 +17,7 @@ function GameArchive({ chatId }) {
                     setGameList(data.gameDays)
                 })
         },
-        [chatId, getChatById]
+        [chatId]
     )
 
     function renderGameList(arr) {

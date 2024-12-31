@@ -11,18 +11,18 @@ const Preferences = ({ chatId }) => {
 
   const showPopup = useShowPopup();
 
-  const { getSettings, updatedSettings, loading, error } = useMainService()
+  const { getChatById, updateChat, loading, error } = useMainService()
 
   useEffect(
     () => {
-      getSettings(chatId)
+      getChatById(chatId)
         .then(
           data => {
             setSettings(data)
           }
         )
     },
-    [chatId, getSettings]
+    [chatId]
   )
 
   const handleChange = (e) => {
@@ -43,7 +43,7 @@ const Preferences = ({ chatId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    changed && updatedSettings(chatId, JSON.stringify(settings))
+    changed && updateChat(chatId, JSON.stringify(settings))
       .then(
         () => {
           setChanged(false)
@@ -111,6 +111,8 @@ const Preferences = ({ chatId }) => {
   const errorMessage = error ? <ErrorMessage /> : null;
   const spinner = loading ? <Spinner /> : null;
   const content = renderSettings(settings)
+  console.log(loading);
+
 
   return (
     <div className='container'>

@@ -18,7 +18,7 @@ function UserProfile({ user }) {
             .then(user => {
                 setUserData(user)
             })
-    }, [getUserById, user.id]);
+    }, [user.id]);
 
     const handleChangeName = (e) => {
         setUserData(prevData => ({
