@@ -34,7 +34,7 @@ function App() {
         <Route path="archive" element={<GameArchive chatId={chat} />} />
         <Route path="gameDay/*" element={<GameDayPage />} />
         <Route path="pref" element={<Preferences chatId={chat} />} />
-
+        <Route path='nextGame' element={<GameDayPage chatId={chat} />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

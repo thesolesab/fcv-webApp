@@ -4,7 +4,7 @@ import { useShowPopup } from "@vkruglikov/react-telegram-web-app";
 
 import capImg from './cap.png';
 
-function GameDay({ data }) {
+function GameDay({ data, next = false, chat }) {
 
     const [gameDay, setGameDay] = useState(data)
     const showPopup = useShowPopup();
@@ -14,6 +14,7 @@ function GameDay({ data }) {
     const arrPlayers = players.concat(legioners)
 
     const { updateGameDay } = useMainService()
+    console.log(!games, !players);
 
 
     const handleChangeScore = (e) => {
@@ -119,12 +120,13 @@ function GameDay({ data }) {
     return (
         <div className="gameDay">
             <h2>{date}</h2>
+            {next && <button>Записаться</button>}
             <hr />
             <div className="games">
-                {games.map(renderGame)}
+                {!games ? games.map(renderGame) : <p>Никто еще не записался</p>}
             </div>
             <div className="teams">
-                {teams.map(renderTeam)}
+                {!teams ? teams.map(renderTeam) : <p>Команды не созданы</p>}
             </div>
             <hr />
             <div className="signature">

@@ -21,6 +21,14 @@ function GameArchive({ chatId }) {
     )
 
     function renderGameList(arr) {
+        if (arr.length === 0) {
+            return (
+                <h2>
+                    Похоже игр еще не было!
+                </h2>
+            )
+        }
+
         const items = arr.reverse().map(
             (g) => {
                 const { date, _id } = g
